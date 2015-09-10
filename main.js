@@ -3,6 +3,7 @@
  */
 var app = require('app');
 var BrowserWindow = require('browser-window');
+var globalShortcut = require('global-shortcut');
 //var ipc = require('ipc');
 
 var mainWindow = null;
@@ -25,11 +26,18 @@ app.on('ready', function(){
     //´ò¿ªÒ³Ãæ
     mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
-    //mainWindow.openDevTools();
+    globalShortcut.register('ctrl+O', function() {
+        console.log('ctrl+O is pressed');
+        mainWindow.openDevTools();
+    });
 
     mainWindow.on('closed', function(){
         mainWindow = null;
     });
+});
+
+app.on('will-quit', function() {
+    globalShortcut.unregisterAll();
 });
 
 /*ipc.on('quit', function(event, arg){

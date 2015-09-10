@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap-theme.css">
+    <script src="./vendor/jquery/jquery.js"></script>
+    <script src="./vendor/bootstrap/js/bootstrap.js"></script>
     <title></title>
 </head>
 <body>
-    <div>
-        <label>FilePath</label>
-        <input id="path" type="text" placeholder="C:\example\text.md">
-        <button id="marked" class="marked">Marked</button>
-        <button id="quit" class="quit">Quit</button>
-    </div>
+    <form class="form-inline" role="form">
+        <div class="form-group">
+            <label for="path">FilePath:</label>
+            <input type="text" class="form-control input-sm" id="path" placeholder="C:\example\text.md"
+                    style="width: 250px;">
+        </div>
+        <div class="form-group">
+            <button id="marked" type="button" class="btn btn-primary btn-sm">Marked</button>
+            <button id="quit" type="button" class="btn btn-danger btn-sm">Quit</button>
+        </div>
+    </form>
     <div id="content"></div>
     <script src="./client.js"></script>
 </body>
