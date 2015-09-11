@@ -8,12 +8,12 @@
     var process = require('remote').require('process');
     var fs = require('fs');
 
-    var Path = '';
+    var watchToken;
 
     function watchFileChange(path){
-        fs.watch(path, function(event, filename){
+        watchToken = fs.watch(path, function(event, filename){
             if (event == 'change'){
-                $('#content').html(fm.toMarkdown(Path));
+                $('#content').html(fm.toMarkdown(path));
             }
         });
     }
@@ -22,26 +22,24 @@
         if (val.substring(0,1) === '~'){
             console.log(index + ':' + val);
             var path = val.substring(1);
-            $('#content').html(fm.toMarkdown(Path));
+            $('#content').html(fm.toMarkdown(path));
             $('#path').val(path);
+            watchFileChange(path);
         }
     });
 
     $("#marked").click(function(){
-        /*if (Path != ''){
-            fs.unwatchFile(Path, function(curr, prev){
-                var a = curr;
-                var b = prev;
-            })
-        }*/
-        Path = $('#path').val();
-        fs.exists(Path, function(exists){
+        if (watchToken != undefined && typeof watchToken.close === 'function'){
+            watchToken.close();
+        }
+        var path = $('#path').val();
+        fs.exists(path, function(exists){
             console.log(exists);
             if (exists){
-                $('#content').html(fm.toMarkdown(Path));
-                watchFileChange(Path);
+                $('#content').html(fm.toMarkdown(path));
+                watchFileChange(path);
             }else{
-                //todo 文件不存在时做出提示
+                //todo 鏂囦欢涓嶅瓨鍦ㄦ椂鍋氬嚭鎻愮ず
             }
         });
     });
