@@ -1,6 +1,6 @@
 # MarkdownPreview
 ***
->MarkdownPreview是Markdown文件预览工具；
+MarkdownPreview是Markdown文件预览工具；
 
 
 
