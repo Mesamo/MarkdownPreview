@@ -15,7 +15,7 @@ app.on('window-all-closed', function(){
 });
 
 app.on('ready', function(){
-    //创建窗口
+    //鍒涘缓绐楀彛
     mainWindow = new BrowserWindow({
         title : 'MarkdownPreview',
         width : '800',
@@ -24,7 +24,7 @@ app.on('ready', function(){
         //frame: false
     });
 
-    //打开页面
+    //鎵撳紑椤甸潰
     mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
     globalShortcut.register('ctrl+O', function() {
