@@ -3,7 +3,7 @@
  */
 
 var fs = require('fs'); //node.js module -- file system
-var marked = require('../vendor/marked/marked.js');
+var marked = require('marked');
 
 module.exports = {
     toMarkdown: function(filePath){

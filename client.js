@@ -2,7 +2,7 @@
  * Created by Mesamo on 2015/9/9.
  */
 (function(){
-    var $ =require('./vendor/jquery/jquery');
+    var $ =require('jquery');
     var application = require('./modules/application');
     var fm = require('./modules/fileManege.js');
     var process = require('remote').require('process');
