@@ -10,9 +10,7 @@
   "devDependencies": {
     "electron-prebuilt": "^0.32.1"
   },
-  "scripts": {
-
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/Mesamo/MarkdownPreview.git"
