@@ -2,7 +2,7 @@
   "name": "MarkdownPreview",
   "version": "0.0.1",
   "description": "Preview Markdown file",
-  "main": "main.js",
+  "main": "app.js",
   "dependencies": {
     "marked":"0.3.5",
     "jquery":"2.1.4"
