@@ -3,8 +3,8 @@
  */
 (function(){
     var $ =require('jquery');
-    var application = require('./modules/application');
-    var fm = require('./modules/fileManege.js');
+    var application = require('./lib/application');
+    var fm = require('./lib/fileManege.js');
     var process = require('remote').require('process');
     var fs = require('fs');
 
