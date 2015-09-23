@@ -8,39 +8,35 @@ var globalShortcut = require('global-shortcut');
 
 var mainWindow = null;
 
-app.on('window-all-closed', function(){
-    if (process.platform != 'darwin'){
+app.on('window-all-closed', function () {
+    if (process.platform != 'darwin') {
         app.quit();
     }
 });
 
-app.on('ready', function(){
+app.on('ready', function () {
     //创建窗口
     mainWindow = new BrowserWindow({
-        title : 'MarkdownPreview',
-        width : '800',
-        height : '600',
-        'auto-hide-menu-bar' : true
+        title: 'MarkdownPreview',
+        width: '800',
+        height: '600',
+        'auto-hide-menu-bar': true
         //frame: false
     });
 
     //打开页面
     mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
-    globalShortcut.register('ctrl+O', function() {
+    globalShortcut.register('ctrl+O', function () {
         console.log('ctrl+O is pressed');
         mainWindow.openDevTools();
     });
 
-    mainWindow.on('closed', function(){
+    mainWindow.on('closed', function () {
         mainWindow = null;
     });
 });
 
-app.on('will-quit', function() {
+app.on('will-quit', function () {
     globalShortcut.unregisterAll();
 });
-
-/*ipc.on('quit', function(event, arg){
-   app.quit();
-});*/
