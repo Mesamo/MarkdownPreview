@@ -1,5 +1,5 @@
 /**
- * Created by Mesamo on 2015/9/9.
+ * Created by Mesamo on 2015/11/30.
  */
 var app = require('app');
 var BrowserWindow = require('browser-window');
