@@ -10,9 +10,11 @@
   },
   "devDependencies": {
     "electron-prebuilt": "^0.32.1",
+    "event-stream": "^3.3.2",
     "gulp": "^3.9.0",
     "gulp-inject": "^3.0.0",
-    "gulp-rimraf": "^0.2.0"
+    "gulp-rimraf": "^0.2.0",
+    "stream-series": "^0.1.1"
   },
   "scripts": {},
   "repository": {

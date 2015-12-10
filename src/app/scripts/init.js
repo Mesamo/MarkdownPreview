@@ -2,9 +2,7 @@
  * Created by Mesamo on 2015/11/30.
  */
 (function () {
-    var $ = require('jquery');
-    //var application = require('./lib/application');
-    var convert = require('./textConvert');
+    var convert = require('scripts/textConvert.js');
     var process = require('remote').require('process');
     var fs = require('fs');
     var watchToken;
@@ -44,7 +42,6 @@
     });
 
     $('#quit').click(function () {
-        //application.quit();
         require('remote').require('app').quit();
     });
 })();

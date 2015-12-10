@@ -5,7 +5,7 @@ module.exports = {
     build_dir: {
         base: 'build',
         vendor: 'build/vendor',
-        script: 'build/script',
+        script: 'build/scripts',
         css: 'build/css',
         assets: 'build/assets'
     },

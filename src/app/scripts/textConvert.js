@@ -2,7 +2,6 @@
  * Created by Mesamo on 2015/11/30.
  */
 var fs = require('fs');
-var marked = require('marked');
 
 module.exports = {
     toMarkdown: function (filePath) {
