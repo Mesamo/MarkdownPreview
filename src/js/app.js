@@ -1,6 +1,10 @@
 /**
  * Created by Mesamo on 2015/11/30.
  */
+
+//const electron = require('electron');
+//const app = electron.app;
+//const BrowserWindow = electron.BrowserWindow;
 var app = require('app');
 var BrowserWindow = require('browser-window');
 var globalShortcut = require('global-shortcut');
