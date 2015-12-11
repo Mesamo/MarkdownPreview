@@ -2,7 +2,6 @@
 MarkdownPreview是Markdown文件预览工具；
 
 
-
 ## How to use it：
 1.安装electron-prebuilt   
 ```cmd
