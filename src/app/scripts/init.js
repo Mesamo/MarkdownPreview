@@ -2,7 +2,7 @@
  * Created by Mesamo on 2015/11/30.
  */
 (function () {
-    var convert = require('scripts/textConvert.js');
+    var convert = require('./scripts/textConvert.js');
     var process = require('remote').require('process');
     var fs = require('fs');
     var watchToken;
