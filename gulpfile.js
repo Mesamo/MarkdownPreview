@@ -8,7 +8,6 @@ var config = require('./config');
 var inject = require('gulp-inject');
 var series = require('stream-series');
 var run_sequence = require('run-sequence');
-//var uglify = require('gulp-uglify');
 
 gulp.task('clean-build', function () {
     gulp.src(config.build_dir.base, {read: false})
@@ -40,12 +39,13 @@ gulp.task('copy_vendor', function () {
     )
 });
 
+//
 gulp.task('copy_scripts', function () {
     return gulp.src('./src/app/scripts/*.js')
         .pipe(gulp.dest(config.build_dir.script))
 });
 
-
+//
 gulp.task('inject', function () {
     var vendor_series = series(
         gulp.src(config.build_dir.vendor + '/marked/**/*.js', {read: false}),
