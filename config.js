@@ -15,7 +15,7 @@ module.exports = {
     },
 
     vendor: {
-        jquery: ['./node_modules/jquery/dist/jquery.js'],
+        jquery: ['./node_modules/jquery/dist/jquery.min.js'],
         marked: ['./node_modules/marked/lib/marked.js'],
         bootstrap: [
             './node_modules/bootstrap/dist/**/bootstrap.min.css',
