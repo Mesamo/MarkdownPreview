@@ -7,6 +7,7 @@ var es = require('event-stream');
 var config = require('./config');
 var inject = require('gulp-inject');
 var series = require('stream-series');
+var run_sequence = require('run-sequence');
 //var uglify = require('gulp-uglify');
 
 gulp.task('clean-build', function () {
@@ -45,7 +46,7 @@ gulp.task('copy_scripts', function () {
 });
 
 
-gulp.task('inject', ['copy_index', 'copy_vendor', 'copy_scripts'], function () {
+gulp.task('inject', function () {
     var vendor_series = series(
         gulp.src(config.build_dir.vendor + '/marked/**/*.js', {read: false}),
         gulp.src(config.build_dir.vendor + '/bootstrap/**/*.js', {read: false})
@@ -66,6 +67,6 @@ gulp.task('inject', ['copy_index', 'copy_vendor', 'copy_scripts'], function () {
         .pipe(gulp.dest(config.build_dir.base))
 });
 
-gulp.task('default', ['inject'], function () {
-
+gulp.task('default', function () {
+    run_sequence('copy_index', 'copy_vendor', 'copy_scripts', 'inject')
 });
