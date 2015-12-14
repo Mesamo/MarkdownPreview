@@ -14,6 +14,7 @@
     "gulp": "^3.9.0",
     "gulp-inject": "^3.0.0",
     "gulp-rimraf": "^0.2.0",
+    "gulp-sass": "^2.1.1",
     "run-sequence": "^1.1.5",
     "stream-series": "^0.1.1"
   },

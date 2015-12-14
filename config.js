@@ -6,7 +6,7 @@ module.exports = {
         base: 'build',
         vendor: 'build/vendor',
         script: 'build/scripts',
-        css: 'build/css',
+        themes: 'build/themes',
         assets: 'build/assets'
     },
 
