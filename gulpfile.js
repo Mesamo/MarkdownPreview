@@ -4,17 +4,22 @@
 var config = require('./config');
 var gulp = require('gulp');
 var rimraf = require('gulp-rimraf');
-var event_stream = require('event-stream');
+var sass = require('gulp-sass');
+var uglify = require('gulp-uglify');
 var inject = require('gulp-inject');
 var series = require('stream-series');
+var event_stream = require('event-stream');
 var run_sequence = require('run-sequence');
-var sass = require('gulp-sass');
+var minify_css = require('gulp-minify-css');
+var sourcemaps = require('gulp-sourcemaps');
 
+//清理build目录
 gulp.task('clean-build', function () {
     gulp.src(config.build_dir.base, {read: false})
         .pipe(rimraf());
 });
 
+//清理dist目录
 gulp.task('clean-dist', function () {
     gulp.src(config.dist_dir.base, {read: false})
         .pipe(rimraf());
@@ -43,6 +48,7 @@ gulp.task('copy_vendor', function () {
 //复制js文件到构建目录
 gulp.task('copy_scripts', function () {
     return gulp.src('./src/app/scripts/*.js')
+        .pipe(uglify())
         .pipe(gulp.dest(config.build_dir.script))
 });
 
@@ -50,6 +56,9 @@ gulp.task('copy_scripts', function () {
 gulp.task('sass', function () {
     return gulp.src('./src/themes/mdpstyle.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.init())
+        .pipe(minify_css())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.build_dir.themes))
 });
 
