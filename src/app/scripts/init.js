@@ -1,7 +1,7 @@
 /**
  * Created by Mesamo on 2015/11/30.
  */
-(function () {
+(function ($) {
     var convert = require('./scripts/textConvert.js');
     var process = require('remote').require('process');
     var fs = require('fs');
@@ -30,9 +30,9 @@
             watchToken.close();
         }
         var path = $('#path').val();
-        fs.exists(path, function (exists) {
-            console.log(exists);
-            if (exists) {
+        fs.exists(path, function (e) {
+            console.log(e);
+            if (e) {
                 $('#content').html(convert.toMarkdown(path));
                 watchFileChange(path);
             } else {
@@ -44,4 +44,4 @@
     $('#quit').click(function () {
         require('remote').require('app').quit();
     });
-})();
+})(window.$);
