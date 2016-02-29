@@ -1,5 +1,5 @@
 {
-  "name": "MarkdownPreview",
+  "name": "markdown-preview",
   "version": "0.0.1",
   "description": "Preview Markdown file",
   "main": "app.js",
