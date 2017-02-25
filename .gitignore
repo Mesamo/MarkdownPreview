@@ -1,6 +1,13 @@
-/.idea
-/.vscode
-/node_modules
-build
-dist
+# Logs
+logs
 *.log
+npm-debug.log*
+
+# Build directories
+/dist
+
+# Dependency directories
+node_modules
+
+/.vscode
+/.idea
