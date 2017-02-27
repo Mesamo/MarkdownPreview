@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../node_modules/element-ui/lib/theme-default/index.css">
+  <style>
+    body {
+      font-family: "Microsoft YaHei UI", 'Arial', '微软雅黑';
+    }
+  </style>
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script src="../node_modules/vuex/dist/vuex.js"></script>
+  <script src="../node_modules/element-ui/lib/index.js"></script>
+  <title>Markdown Preview</title>
+</head>
+<body>
+  <div id="app">
+    <v-tabs></v-tabs>
+    <v-content></v-content>
+  </div>
+</body>
+<script src="./app.js"></script>
 </html>

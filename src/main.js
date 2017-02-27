@@ -1,6 +1,8 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
+const ipc = require('electron').ipcMain
+const dialog = require('electron').dialog
 
 let win
 
@@ -8,7 +10,12 @@ let win
 function createWindow () {
 
     // 创建浏览器窗口。
-    win = new BrowserWindow({width: 800, height: 600})
+    win = new BrowserWindow({
+        width: 800, 
+        height: 600, 
+        // transparent: true,
+        // frame: false
+    })
 
     // 并加载应用程序的index.html。
     win.loadURL(url.format({
@@ -19,6 +26,18 @@ function createWindow () {
 
     // 打开开发工具。
     win.webContents.openDevTools()
+
+    ipc.on('open-file-dialog', (event) => {
+        dialog.showOpenDialog({properties: ['openFile']}, function (files) {
+            if (files) {
+                event.sender.send('selected-files', files)
+            }
+        })
+    })
+
+    ipc.on('tab-all-closed', (event) => {
+        win.close()
+    })
 
     // 窗口关闭时触发。
     win.on('closed', () => {

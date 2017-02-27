@@ -25,10 +25,11 @@
   "homepage": "https://github.com/Mesamo/MarkdownPreview#readme",
   "devDependencies": {
     "electron": "^1.4.15",
-    "electron-packager": "^8.5.2",
-    "electron-winstaller": "^2.5.2"
+    "electron-packager": "^8.5.2"
   },
   "dependencies": {
-    "marked": "^0.3.6"
+    "element-ui": "^1.2.1",
+    "marked": "^0.3.6",
+    "vue": "^2.2.1"
   }
 }
