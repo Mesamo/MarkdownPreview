@@ -1,14 +1,14 @@
 const ipc = require('electron').ipcRenderer;
-var selectedTab = require('./selectedTab');
-var path = require('path');
+const selectedTab = require('./selectedTab');
+const path = require('path');
 
-var docPath = path.join(__dirname, '../docs/欢迎使用.md');
-var docBaseName = path.basename(docPath);
+const docPath = path.join(__dirname, '../docs/欢迎使用.md');
+const docBaseName = path.basename(docPath);
 
-var defaultTab = {
+let defaultTab = {
   label: docBaseName,
   name: docPath
-}
+};
 
 Vue.component('v-tabs', {
   template: '\
@@ -34,16 +34,16 @@ Vue.component('v-tabs', {
     }
   },
   mounted: function () {
-    var vm = this;
+    const vm = this;
     this.items.push(defaultTab);
     this.activeName = defaultTab.name;
     selectedTab.$emit('on-selected', defaultTab.name);
 
     ipc.on('selected-files', function (event, filePath) {
-      var newTab = {
+      let newTab = {
         label: path.basename(filePath[0]),
         name: filePath[0]
-      }
+      };
       vm.items.push(newTab);
       vm.activeName = newTab.name;
       selectedTab.$emit('on-selected', newTab.name)
@@ -71,7 +71,7 @@ Vue.component('v-tabs', {
       }
 
       this.activeName = tabName;
-      this.items = tabs.filter(tab => tab.name !== targetName)
+      this.items = tabs.filter(tab => tab.name !== targetName);
 
       if (this.items.length > 0) {
         selectedTab.$emit('on-selected', tabName)

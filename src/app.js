@@ -7,4 +7,4 @@ const app = new Vue({
         activeName: 'first',
         text: 'hello world !'
     }
-})
+});
