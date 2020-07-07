@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/Mesamo/MarkdownPreview#readme",
   "devDependencies": {
-    "electron": "^1.4.15",
+    "electron": "^9.1.0",
     "electron-packager": "^8.5.2"
   },
   "dependencies": {
